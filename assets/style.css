@@ -627,3 +627,7 @@ ul.list a:hover {
   display: block;
   margin: 0 auto 16px;  /* center and add bottom spacing */
 }
+
+.card {
+  margin-bottom: 24px; /* or 32px if you want more space */
+}
