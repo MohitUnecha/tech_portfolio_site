@@ -127,4 +127,43 @@ if (typeTarget) {
   update();
 })();
 
+// Hover-to-play for Zimmerli bubble
+(function () {
+  const card = document.getElementById('zimmerli-card');
+  const audio = document.getElementById('zimmerli-audio');
+  if (!card || !audio) return;
+
+  let canPlay = true;
+
+  // Desktop hover
+  card.addEventListener('mouseenter', () => {
+    // many browsers block autoplay with sound until a user gesture; this helps once the user has clicked anywhere
+    if (canPlay) {
+      audio.currentTime = 0;
+      audio.play().catch(() => { /* ignore block until user interacts */ });
+    }
+  });
+
+  card.addEventListener('mouseleave', () => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+
+  // Fallback for mobile or autoplay-restricted browsers: tap to toggle
+  card.addEventListener('click', (e) => {
+    // only toggle if the click is not on the "Read More" link
+    const isLink = e.target.closest('a');
+    if (isLink) return;
+
+    if (audio.paused) {
+      audio.play().catch(() => { /* may still be blocked until user gesture elsewhere */ });
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  });
+
+  // once the user interacts with the page, allow playback
+  window.addEventListener('pointerdown', () => { canPlay = true; }, { once: true });
+})();
 

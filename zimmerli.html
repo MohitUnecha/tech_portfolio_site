@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Weight of Each Moment</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+
+  <!-- Page-only helpers -->
+  <style>
+    /* card look to match Self Identity's poem-card */
+    .art-card {
+      padding: 28px;
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      margin-top: 24px;
+    }
+    .prose { line-height: 1.65; font-size: 1.05rem; }
+    .subtitle { color: var(--muted, #667085); }
+
+    /* simple two-image rotator */
+    .hero-rotator {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+
+    /* smaller + centered */
+    width: 100%;
+    max-width: 450px;   /* reduce from 600px */
+    margin: 0 auto 18px;
+    aspect-ratio: 1 / 1; /* square for more "zoomed-out" look */
+
+    background: #f2f2f2;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    border: 1px solid rgba(0,0,0,.06);
+    }
+    .hero-rotator img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* still fills, but with square frame */
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity .7s ease, transform 1.2s ease;
+    }
+    .hero-rotator img.active {
+    opacity: 1;
+    transform: scale(1);
+    }
+
+    /* floating mute button */
+    .audio-toggle {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      line-height: 1;
+      border-radius: 999px;
+      background: rgba(16,16,16,.78);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: saturate(140%) blur(6px);
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      user-select: none;
+    }
+    .audio-toggle .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e;
+    }
+    .audio-toggle.muted .dot { background: #ef4444; }
+
+    /* small helper for the “Audio playing blocked” nudge */
+    .audio-nudge {
+      position: fixed;
+      left: 50%;
+      bottom: 72px;
+      transform: translateX(-50%);
+      background: #111;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: .9rem;
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .audio-nudge.show { opacity: .95; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.svg" alt="" class="brand-icon"/> Mohit's Creative Writing Space
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="assignments.html">Assignments</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span id="themeIcon" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <header class="section-head">
+      <h1>The Weight of Each Moment</h1>
+      <p class="subtitle">Posted: Oct 1, 2025 · Creative Writing</p>
+    </header>
+
+    <!-- two-image rotator -->
+    <div class="hero-rotator" id="rotator">
+      <!-- update paths if needed -->
+      <img src="assets/IMG_1853.jpg" alt="Zimmerli clock installation, view one" class="active" />
+      <img src="assets/IMG_1855.jpg" alt="Zimmerli clock installation, view two" />
+    </div>
+
+    <section class="prose">
+      <article class="art-card">
+        <p>We went as a class, moving through the galleries at Zimmerli. Everyone paused here and there, but I found myself pulled toward something in the corner. At first glance it seemed like a simple installation: a clock mounted on the wall, with pages framed beneath it, each page stamped with numbers. But when I stepped closer, I realized it wasn’t simple at all.</p>
+
+        <p>The clock was real, not painted, and it had more than the usual two or three hands. Five of them swept across its face, each moving at its own pace. Seconds, minutes, hours, all tangled together, overlapping in ways that made it impossible to read. A small speaker beside it let out a steady sound: <em>tick…tick…tick.</em> One click for each second.</p>
+
+        <p>The effect was unsettling. I stared, trying to make sense of which hand meant what, but the more I looked, the more the time slipped away from me. The framed pages below, with numbers printed beneath, seemed to add weight to it, as if each page was a record of moments already gone, collected and archived.</p>
+
+        <p>I didn’t expect to feel so much standing in front of a clock, but slowly I found myself spiraling. Not all at once, but quietly, like falling into a thought without realizing it. The ticking made me think of my grandmothers. Both of them passed when I was fifteen. I couldn’t attend one funeral because of COVID, so I built a small memorial in Minecraft, a tiny graveyard made of blocks. It felt strange, but it was the only way I knew how to say goodbye.</p>
+
+        <p><em>Tick.</em></p>
+
+        <p>The clock reminded me of this past summer too, when my dad’s brother died and I shaved my hair for his soul. Rituals try to give structure to something that has none. But still, I keep asking: when my time comes, what happens then? Will I still think like Mohit Unecha from Rutgers University, or will everything just stop? Religion provides comfort, but no one has truly seen the afterlife. That uncertainty unsettles me more than anything.</p>
+
+        <p><em>Tick.</em></p>
+
+        <p>I realized I hadn’t moved. My eyes were fixed on the clock’s five restless hands. They didn’t move in harmony; they jittered past one another like racing thoughts. The clicking matched them, drilling deeper into my chest. The pages beneath looked like a ledger of time itself, each number printed as if the artist was counting down something I could not name.</p>
+
+        <p>“Mohit.”</p>
+
+        <p>I turned. Siddhi was next to me, tugging lightly at my arm. She pointed across the gallery. “Come check this one out.”</p>
+
+        <p>Her voice pulled me back. I let out a nervous laugh. “Yeah, I’ll come.”</p>
+
+        <p>It was only then, as I shook free of my spiral, that I started to notice the artwork in a different way. The technical choices were deliberate. The five hands were not random; they fractured the certainty of telling time, showing how our measurements are fragile and always slipping out of control. The steady ticking sound gave the piece rhythm, almost like a heartbeat, but also a pulse of inevitability, pressing into the body with a quiet melancholy.</p>
+
+        <p>The framed pages beneath the clock deepened this effect. They looked archival, like records of time already spent, each number carrying the weight of moments lost. Together, the clock and pages built a tension between the living present and the documented past, reminding me that every second vanishes as soon as it arrives.</p>
+
+        <p>What struck me most was how such simple elements, hands, pages, numbers, expanded into something overwhelming. The artist did not just want us to see time; they wanted us to feel trapped inside it. The clock refused to be read, the hands multiplied, the sound pressed into your ears. It was a reminder that time is not ours to command, and that realization left me with a lingering heaviness, as if I carried the work out of the gallery with me.</p>
+
+        <p>When I finally walked away, the ticking followed me. Not as loud, but faint in the back of my head. For a moment I wondered if that was the point. That the artwork leaves you carrying its sound, reminding you that even as you leave the gallery, the seconds keep moving, the hands keep sweeping forward, and your own time is slipping, whether you notice or not.</p>
+      </article>
+    </section>
+
+    <div style="text-align:center; margin-top: 40px;">
+      <a href="assignments.html" class="btn primary">← Back to Assignments</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Mohit Unecha. All rights reserved • Built with ❤️</p>
+  </footer>
+
+  <!-- Audio element: tries to play by default -->
+  <audio id="tick-audio" preload="auto" loop>
+    <source src="assets/new-jersey-hall.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- floating mute/unmute -->
+  <button id="audioToggle" class="audio-toggle muted" aria-pressed="true" aria-label="Unmute audio">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="label">Muted</span>
+  </button>
+  <div class="audio-nudge" id="audioNudge">Tap Unmute to start audio</div>
+
+  <script src="assets/script.js"></script>
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile nav toggle
+    const burger = document.getElementById('hamburger');
+    const links = document.getElementById('navLinks');
+    if (burger && links) {
+      burger.addEventListener('click', () => {
+        const expanded = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!expanded));
+        links.classList.toggle('open');
+      });
+    }
+
+    // simple two-image rotator
+    (function () {
+      const rotator = document.getElementById('rotator');
+      if (!rotator) return;
+      const imgs = Array.from(rotator.querySelectorAll('img'));
+      if (imgs.length < 2) return;
+      let i = 0;
+      setInterval(() => {
+        imgs[i].classList.remove('active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('active');
+      }, 4000);
+    })();
+
+    // audio auto-play with floating mute/unmute
+    (function () {
+      const audio = document.getElementById('tick-audio');
+      const toggle = document.getElementById('audioToggle');
+      const nudge  = document.getElementById('audioNudge');
+      if (!audio || !toggle) return;
+
+      // try to autoplay with sound
+      audio.muted = false;
+      audio.play().then(() => {
+        toggle.classList.remove('muted');
+        toggle.setAttribute('aria-pressed', 'false');
+        toggle.querySelector('.label').textContent = 'Press Me To Mute';
+      }).catch(() => {
+        // autoplay blocked; show nudge and keep muted state
+        audio.muted = true;
+        audio.play().catch(()=>{});
+        toggle.classList.add('muted');
+        toggle.setAttribute('aria-pressed', 'true');
+        toggle.querySelector('.label').textContent = 'Muted';
+        nudge.classList.add('show');
+        setTimeout(() => nudge.classList.remove('show'), 2400);
+      });
+
+      // click to toggle mute
+      toggle.addEventListener('click', () => {
+        if (audio.muted || audio.paused) {
+          audio.muted = false;
+          audio.play().catch(()=>{});
+          toggle.classList.remove('muted');
+          toggle.setAttribute('aria-pressed', 'false');
+          toggle.querySelector('.label').textContent = 'Press Me To Mute';
+        } else {
+          audio.muted = true;
+          audio.pause();
+          toggle.classList.add('muted');
+          toggle.setAttribute('aria-pressed', 'true');
+          toggle.querySelector('.label').textContent = 'Press Me To Play';
+        }
+      });
+
+      // first user interaction anywhere -> try to start audio if blocked
+      window.addEventListener('pointerdown', () => {
+        if (audio.paused) {
+          audio.muted = false;
+          audio.play().then(() => {
+            toggle.classList.remove('muted');
+            toggle.setAttribute('aria-pressed', 'false');
+            toggle.querySelector('.label').textContent = 'Playing';
+          }).catch(()=>{});
+        }
+      }, { once: true });
+    })();
+  </script>
+</body>
+</html>

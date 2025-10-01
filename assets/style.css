@@ -630,3 +630,151 @@ ul.list a:hover {
 .card {
   margin-bottom: 24px; /* or 32px if you want more space */
 }
+.prose .art-figure { margin: 1rem 0 2rem; text-align: center; }
+.prose .art-figure img { max-width: 100%; height: auto; border-radius: 12px; }
+.prose .meta { color: #666; font-size: 0.95rem; margin-bottom: 0.5rem; }
+.prose .actions { margin-top: 2rem; }
+.button { display: inline-block; padding: 0.6rem 1rem; border-radius: 10px; text-decoration: none; border: 1px solid #ddd; }
+/* ===========================
+   Zimmerli Bubble Polishing
+   =========================== */
+
+/* sensible fallbacks if your variables are missing */
+:root {
+  --card-bg: var(--surface, #ffffff);
+  --card-text: var(--text, #111);
+  --muted-text: var(--muted, #667085);
+  --border: var(--border, #e6e6e6);
+  --shadow-sm: 0 6px 18px rgba(0,0,0,.06);
+  --shadow-md: 0 10px 28px rgba(0,0,0,.10);
+  --radius: 14px;
+}
+
+/* base card tune-up */
+.card {
+  background: var(--card-bg);
+  color: var(--card-text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+.card.hoverable {
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card.hoverable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0,0,0,.06);
+}
+
+/* header text spacing inside cards */
+.card h3 {
+  margin: .25rem 0 .35rem;
+  line-height: 1.25;
+}
+.card .small-text { color: var(--muted-text); }
+
+/* ---------- Zimmerli specific ---------- */
+.zimmerli-card {
+  position: relative;
+  overflow: hidden; /* clean edges on image scale */
+}
+
+/* tidy meta row */
+.zimmerli-card .meta.alt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-top: .6rem;
+}
+
+/* thumbnails: responsive grid with consistent aspect ratio */
+.zimmerli-card .thumbs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.zimmerli-card .thumbs img {
+  width: 100%;
+  aspect-ratio: 4 / 3;       /* keeps images same shape */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  background: #f2f2f2;
+  border: 1px solid var(--border);
+  transition: transform .25s ease;
+}
+
+/* subtle zoom on hover, with motion-respect */
+@media (prefers-reduced-motion: no-preference) {
+  .zimmerli-card:hover .thumbs img { transform: scale(1.02); }
+}
+
+/* audio badge in the top-right corner */
+.zimmerli-card .audio-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: .35rem .55rem;
+  font-size: .8rem;
+  line-height: 1;
+  border-radius: 999px;
+  background: rgba(16,16,16,.72);
+  color: #fff;
+  backdrop-filter: saturate(140%) blur(6px);
+  border: 1px solid rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  opacity: .85;
+  pointer-events: none; /* not clickable */
+}
+
+/* tiny equalizer bars when playing */
+.zimmerli-card.playing .audio-badge .eq {
+  display: inline-flex;
+  gap: 2px;
+}
+.zimmerli-card.playing .audio-badge .eq i {
+  display: inline-block;
+  width: 2px;
+  height: 8px;
+  background: currentColor;
+  animation: eqBounce 700ms ease-in-out infinite;
+}
+.zimmerli-card.playing .audio-badge .eq i:nth-child(2) { animation-delay: .15s; }
+.zimmerli-card.playing .audio-badge .eq i:nth-child(3) { animation-delay: .30s; }
+
+@keyframes eqBounce {
+  0%, 100% { transform: scaleY(.6); opacity: .7; }
+  50% { transform: scaleY(1.25); opacity: 1; }
+}
+
+/* button look consistency */
+.btn.small.primary {
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: .45rem .7rem;
+  border-radius: 10px;
+}
+
+/* --------- Dark theme support ---------
+   If your site toggles a .dark class or [data-theme="dark"],
+   these keep contrast and borders clean. */
+.dark .card,
+[data-theme="dark"] .card {
+  --card-bg: #0f1115;
+  --card-text: #e9eaee;
+  --muted-text: #a6adbb;
+  --border: #1b1f2a;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+.dark .zimmerli-card .thumbs img,
+[data-theme="dark"] .zimmerli-card .thumbs img {
+  background: #151821;
+  border-color: #232736;
+}

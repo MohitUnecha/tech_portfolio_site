@@ -22,7 +22,7 @@
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
         <span id="themeIcon" aria-hidden="true"></span>
       </button>
-      </nav>
+    </nav>
   </header>
 
   <main class="container">
@@ -31,17 +31,44 @@
       <p class="subtitle">Below are my Assignments Due for my Creative Writing Class.</p>
     </header>
 
+    <!-- NEW: Zimmerli Art Response bubble with thumbs + hover audio -->
+    <article class="card hoverable zimmerli-card" id="zimmerli-card" aria-describedby="zimmerli-desc">
+      <div class="thumbs">
+        <img src="assets/IMG_1853.jpg" alt="Zimmerli clock installation, view 1" loading="lazy">
+        <img src="assets/IMG_1855.jpg" alt="Zimmerli clock installation, view 2" loading="lazy">
+      </div>
+
+      <h3>The Weight of Each Moment</h3>
+      <p id="zimmerli-desc" class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
+        What I saw in the art...
+      </p>
+
+      <div class="meta alt">
+        <span class="posted small-text">Posted: Oct 1, 2025</span>
+        <a class="btn small primary" href="zimmerli.html">Read More →</a>
+      </div>
+
+      <!-- hidden audio element for hover preview -->
+      <audio id="zimmerli-audio" preload="auto">
+        <source src="assets/new-jersey-hall.mp3" type="audio/mpeg">
+      </audio>
+      <div class="audio-badge">
+        <span>Audio</span>
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+    </article>
+
     <article class="card hoverable">
       <h3>Self Identity: Who Am I?</h3>
       <p class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
-        ✍️ Poem & reflection
+        Poem & reflection
       </p>
-    
       <div class="meta alt">
         <span class="posted small-text">Posted: Sep 18, 2025</span>
         <a class="btn small primary" href="self-identity-2025-09-18.html">Read More →</a>
       </div>
     </article>
+
     <article class="card hoverable">
       <h3>My Top 5 Songs</h3>
       <p class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
@@ -64,23 +91,16 @@
           <img src="assets/GHOST.jpg" alt="Ghost">
         </a>
       </div>
-    
       <div class="meta alt">
         <span class="posted small-text">Posted: Sep 10, 2025</span>
         <a class="btn small primary" href="top5songs.html">Read More →</a>
       </div>
     </article>
 
-    </div>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year">
-
-    </span> Mohit Unecha. All rights reserved • Built with ❤️<br>
-    
-
-    </p>
+    <p>© <span id="year"></span> Mohit Unecha. All rights reserved • Built with ❤️</p>
   </footer>
 
   <script src="assets/script.js"></script>
