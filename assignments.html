@@ -7,14 +7,18 @@
   <link rel="stylesheet" href="assets/style.css"/>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
 </head>
+
 <body>
+  <!-- NAVIGATION -->
   <header class="nav">
     <a class="brand" href="index.html">
       <img src="assets/favicon.svg" alt="" class="brand-icon"/> Mohit's Creative Writing Space
     </a>
+
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+
     <nav class="links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -25,83 +29,190 @@
     </nav>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
     <header class="section-head">
       <h1>Assignments</h1>
       <p class="subtitle">Below are my Assignments Due for my Creative Writing Class.</p>
     </header>
 
-    <!-- NEW: Zimmerli Art Response bubble with thumbs + hover audio -->
-    <article class="card hoverable zimmerli-card" id="zimmerli-card" aria-describedby="zimmerli-desc">
-      <div class="thumbs">
-        <img src="assets/IMG_1853.jpg" alt="Zimmerli clock installation, view 1" loading="lazy">
-        <img src="assets/IMG_1855.jpg" alt="Zimmerli clock installation, view 2" loading="lazy">
-      </div>
+    <!-- ASSIGNMENT CARDS -->
+    <section class="assignments-list" style="display:flex; flex-direction:column; gap:1.8rem;">
 
-      <h3>The Weight of Each Moment</h3>
-      <p id="zimmerli-desc" class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
-        What I saw in the art...
-      </p>
+      <!-- 🎧 PODCAST CARD (square + smaller + left text + hover audio) -->
+      <article class="card hoverable podcast-card" aria-describedby="podcast-desc" style="position:relative;">
 
-      <div class="meta alt">
-        <span class="posted small-text">Posted: Oct 1, 2025</span>
-        <a class="btn small primary" href="zimmerli.html">Read More →</a>
-      </div>
+        <!-- Smaller square cover -->
+        <div style="
+          width:70%;
+          margin:auto;
+          aspect-ratio:1/1;
+          overflow:hidden;
+          border-radius:12px;
+        ">
+          <img src="assets/PodCastCover.png"
+               id="podcastCover"
+               alt="Growing Up Desi Podcast Cover"
+               loading="lazy"
+               style="width:100%; height:100%; object-fit:cover; cursor:pointer; border-radius:12px;">
+        </div>
 
-      <!-- hidden audio element for hover preview -->
-      <audio id="zimmerli-audio" preload="auto">
-        <source src="assets/new-jersey-hall.mp3" type="audio/mpeg">
-      </audio>
-      <div class="audio-badge">
-        <span>Audio</span>
-        <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
-      </div>
-    </article>
+        <!-- Hidden audio -->
+        <audio id="podcastAudio" preload="auto">
+          <source src="assets/Growing-Up-Desi-Where-Approval-Is-on Backorder.mp3" type="audio/wav">
+        </audio>
 
-    <article class="card hoverable">
-      <h3>Self Identity: Who Am I?</h3>
-      <p class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
-        Poem & reflection
-      </p>
-      <div class="meta alt">
-        <span class="posted small-text">Posted: Sep 18, 2025</span>
-        <a class="btn small primary" href="self-identity-2025-09-18.html">Read More →</a>
-      </div>
-    </article>
+        <!-- Heading BELOW image, left aligned -->
+        <h3 style="margin-top:15px; text-align:left;">
+          Growing Up Desi: Where Approval Is on Backorder
+        </h3>
 
-    <article class="card hoverable">
-      <h3>My Top 5 Songs</h3>
-      <p class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
-        🎵 Press on a cover below to play the song
-      </p>
-      <div class="album-grid">
-        <a class="album" href="assets/video/Drake.mp4" target="_blank">
-          <img src="assets/DRAKE.jpg" alt="Flight’s Booked">
-        </a>
-        <a class="album" href="assets/video/DTMF.mp4" target="_blank">
-          <img src="assets/DTMF.png" alt="DTMF">
-        </a>
-        <a class="album" href="assets/video/Iaintworried.mp4" target="_blank">
-          <img src="assets/TOM.jpg" alt="I Ain’t Worried">
-        </a>
-        <a class="album" href="assets/video/Noah.mp4" target="_blank">
-          <img src="assets/Noah.png" alt="Stick Season">
-        </a>
-        <a class="album" href="assets/video/Ghost.mp4" target="_blank">
-          <img src="assets/GHOST.jpg" alt="Ghost">
-        </a>
-      </div>
-      <div class="meta alt">
-        <span class="posted small-text">Posted: Sep 10, 2025</span>
-        <a class="btn small primary" href="top5songs.html">Read More →</a>
-      </div>
-    </article>
+        <p id="podcast-desc" class="small-text"
+           style="margin:10px 0; width:90%; text-align:left; font-style:italic; color:var(--muted);">
+          Hover over the cover to hear a preview of my podcast episode.
+        </p>
 
+        <div class="meta alt" style="margin-top:0.5rem;">
+          <span class="posted small-text">Posted: Nov 25, 2025</span>
+          <a class="btn small primary" href="podcast.html">Read More →</a>
+        </div>
+      </article>
+
+      <!-- 🎥 VIDEO ESSAY CARD -->
+      <article class="card hoverable video-card" aria-describedby="video-essay-desc">
+        <h3>Video Essay Project</h3>
+        <p id="video-essay-desc" class="small-text"
+           style="margin:10px 0; font-style:italic; color:var(--muted);">
+          A visual & narrative exploration of my creative journey.
+        </p>
+
+        <video id="videoPreview" preload="metadata" muted playsinline
+               style="width:100%; border-radius:8px; margin:10px 0; cursor:pointer;">
+          <source src="assets/VideoEssay.mp4" type="video/mp4">
+        </video>
+
+        <div class="meta alt">
+          <span class="posted small-text">Posted: Oct 30, 2025</span>
+          <a class="btn small primary" href="video-essay.html">Read More →</a>
+        </div>
+      </article>
+
+      <!-- 🖼 ZIMMERLI ART RESPONSE -->
+      <article class="card hoverable zimmerli-card" id="zimmerli-card" aria-describedby="zimmerli-desc">
+        <div class="thumbs">
+          <img src="assets/IMG_1853.jpg" loading="lazy">
+          <img src="assets/IMG_1855.jpg" loading="lazy">
+        </div>
+
+        <h3>The Weight of Each Moment</h3>
+        <p id="zimmerli-desc" class="small-text"
+           style="margin:10px 0; font-style:italic; color:var(--muted);">
+          What I saw in the art...
+        </p>
+
+        <div class="meta alt">
+          <span class="posted small-text">Posted: Oct 1, 2025</span>
+          <a class="btn small primary" href="zimmerli.html">Read More →</a>
+        </div>
+
+        <audio id="zimmerli-audio" preload="auto">
+          <source src="assets/new-jersey-hall.mp3" type="audio/mpeg">
+        </audio>
+      </article>
+
+      <!-- ✍️ SELF IDENTITY -->
+      <article class="card hoverable">
+        <h3>Self Identity: Who Am I?</h3>
+        <p class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
+          Poem & reflection
+        </p>
+        <div class="meta alt">
+          <span class="posted small-text">Posted: Sep 18, 2025</span>
+          <a class="btn small primary" href="self-identity-2025-09-18.html">Read More →</a>
+        </div>
+      </article>
+
+      <!-- 🎵 TOP 5 SONGS -->
+      <article class="card hoverable">
+        <h3>My Top 5 Songs</h3>
+        <p class="small-text" style="margin:10px 0; font-style:italic; color:var(--muted);">
+          🎵 Press on a cover below to play the song
+        </p>
+
+        <div class="album-grid">
+          <a class="album" href="assets/video/Drake.mp4" target="_blank">
+            <img src="assets/DRAKE.jpg">
+          </a>
+          <a class="album" href="assets/video/DTMF.mp4" target="_blank">
+            <img src="assets/DTMF.png">
+          </a>
+          <a class="album" href="assets/video/Iaintworried.mp4" target="_blank">
+            <img src="assets/TOM.jpg">
+          </a>
+          <a class="album" href="assets/video/Noah.mp4" target="_blank">
+            <img src="assets/Noah.png">
+          </a>
+          <a class="album" href="assets/video/Ghost.mp4" target="_blank">
+            <img src="assets/GHOST.jpg">
+          </a>
+        </div>
+
+        <div class="meta alt">
+          <span class="posted small-text">Posted: Sep 10, 2025</span>
+          <a class="btn small primary" href="top5songs.html">Read More →</a>
+        </div>
+      </article>
+
+    </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <p>© <span id="year"></span> Mohit Unecha. All rights reserved • Built with ❤️</p>
   </footer>
+
+  <!-- PODCAST HOVER AUDIO -->
+  <script>
+    const cover = document.getElementById("podcastCover");
+    const audio = document.getElementById("podcastAudio");
+
+    cover.addEventListener("mouseenter", () => {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    });
+
+    cover.addEventListener("mouseleave", () => {
+      audio.pause();
+      audio.currentTime = 0;
+    });
+  </script>
+
+  <!-- VIDEO ESSAY HOVER PREVIEW -->
+  <script>
+    const preview = document.getElementById("videoPreview");
+    const previewLimit = 10;
+    let redirectTriggered = false;
+
+    if (preview) {
+      preview.addEventListener("mouseenter", () => {
+        if (!redirectTriggered) preview.play().catch(() => {});
+      });
+
+      preview.addEventListener("mouseleave", () => {
+        if (!redirectTriggered) {
+          preview.pause();
+          preview.currentTime = 0;
+        }
+      });
+
+      preview.addEventListener("timeupdate", () => {
+        if (!redirectTriggered && preview.currentTime >= previewLimit) {
+          redirectTriggered = true;
+          window.location.href = "video-essay.html";
+        }
+      });
+    }
+  </script>
 
   <script src="assets/script.js"></script>
 </body>

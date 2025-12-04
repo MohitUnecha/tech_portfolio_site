@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Podcast · Mohit's Creative Writing Space</title>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+
+  <style>
+    .podcast-article {
+      max-width: 900px;
+      margin: 0 auto 32px;
+    }
+    .podcast-cover {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .podcast-article audio {
+      width: 100%;
+      margin-top: 8px;
+      display: block;
+    }
+
+    /* Purple gradient button styling */
+    .download-btn {
+      background: linear-gradient(135deg, #7b2ff7 0%, #9f44ff 50%, #c56bff 100%);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.25s ease;
+      display: inline-block;
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(155, 70, 255, 0.35);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/favicon.svg" alt="" class="brand-icon"/> Mohit's Creative Writing Space
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="assignments.html" class="active">Assignments</a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span id="themeIcon" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <header class="section-head">
+      <h1>Growing Up Desi: Where Approval Is on Backorder</h1>
+      <p class="subtitle">Posted: Nov 25, 2025 · Creative Writing · Podcast Episode</p>
+    </header>
+
+    <section class="prose">
+      <article class="card hoverable podcast-article">
+        <header>
+          <h2 style="margin-bottom:5px;">Episode: Surviving a Stereotypical Desi Household</h2>
+        </header>
+
+        <!-- Cover Art -->
+        <img
+          src="assets/PodCastCover.png"
+          alt="Cover art for Growing Up Desi: Where Approval Is on Backorder"
+          class="podcast-cover"
+        />
+
+        <!-- Audio Player -->
+        <audio controls preload="metadata">
+          <source src="assets/Growing-Up-Desi-Where-Approval-Is-on Backorder.mp3" type="audio/wav" />
+          Your browser does not support the audio element.
+        </audio>
+
+        <!-- Description -->
+        <p style="margin-top:1rem; line-height:1.6;">
+          In this podcast episode, I talk about what it is like growing up in a stereotypical Desi household where
+          approval always feels just out of reach. From grades and careers to hobbies and expectations at home, there
+          is always another bar to clear and another comparison waiting.
+        </p>
+        <p style="line-height:1.6;">
+          I mix humor and honesty to share what it feels like to balance love, pressure, culture, and my own dreams.
+          This episode is about learning to laugh at the chaos, reflect on the patterns I grew up with, and start
+          imagining what a healthier kind of support and approval could look like for the next version of me.
+        </p>
+
+        <!-- Meta Info -->
+        <div class="meta alt" style="margin-top:1rem;">
+          <span>Format: Audio (WAV)</span>
+          <span>File Name: <code>Growing-Up-Desi-Where-Approval-Is-on Backorder.mp3</code></span>
+        </div>
+
+        <!-- PURPLE GRADIENT DOWNLOAD BUTTON -->
+        <a
+          href="assets/Growing-Up-Desi-Where-Approval-Is-on Backorder.mp3"
+          class="download-btn"
+          download
+          style="margin-top:1rem;"
+        >
+          Download Episode
+        </a>
+
+      </article>
+    </section>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="assignments.html" class="btn primary">← Back to Assignments</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Mohit Unecha. All rights reserved • Built with ❤️</p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
